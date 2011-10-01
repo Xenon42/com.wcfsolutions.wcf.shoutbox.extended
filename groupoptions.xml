@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.woltlab.com/XSD/group-options.xsd">
+	<import>
+		<categories>
+			<category name="user.shoutbox">
+				<parent>user</parent>
+				<options>module_shoutbox</options>
+			</category>
+			<category name="user.shoutbox.bbcode">
+				<parent>user.shoutbox</parent>
+				<options>module_shoutbox</options>
+			</category>
+			<category name="mod.shoutbox">
+				<parent>mod</parent>
+				<options>module_shoutbox</options>
+			</category>
+		</categories>
+		<options>
+			<option name="user.shoutbox.canViewShoutbox">
+				<categoryname>user.shoutbox</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+			</option>
+			<option name="user.shoutbox.canViewEntryArchives">
+				<categoryname>user.shoutbox</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+			</option>
+			<option name="user.shoutbox.canAddEntry">
+				<categoryname>user.shoutbox</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+			</option>
+			<option name="user.shoutbox.canIgnoreUser">
+				<categoryname>user.shoutbox</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+			</option>
+			<option name="user.shoutbox.canBeIgnored">
+				<categoryname>user.shoutbox</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+			</option>
+			<option name="user.shoutbox.canWhisper">
+				<categoryname>user.shoutbox</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+			</option>
+			<option name="user.shoutbox.maxEntryLength">
+				<categoryname>user.shoutbox</categoryname>
+				<optiontype>integer</optiontype>
+				<defaultvalue>200</defaultvalue>
+			</option>
+			<option name="user.shoutbox.floodControlTime">
+				<categoryname>user.shoutbox</categoryname>
+				<optiontype>inverseinteger</optiontype>
+				<defaultvalue>30</defaultvalue>
+			</option>
+			<option name="user.shoutbox.canDeleteOwnEntry">
+				<categoryname>user.shoutbox</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>0</defaultvalue>
+			</option>
+			<option name="mod.shoutbox.canDeleteEntry">
+				<categoryname>mod.shoutbox</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>0</defaultvalue>
+			</option>
+			<option name="mod.shoutbox.canBanUser">
+				<categoryname>mod.shoutbox</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>0</defaultvalue>
+			</option>
+			<option name="mod.shoutbox.canBanEveryUser">
+				<categoryname>mod.shoutbox</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>0</defaultvalue>
+			</option>
+			<option name="mod.shoutbox.canUnbanUser">
+				<categoryname>mod.shoutbox</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>0</defaultvalue>
+			</option>
+			<option name="mod.shoutbox.noBan">
+				<categoryname>mod.shoutbox</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>0</defaultvalue>
+			</option>
+			<option name="user.shoutbox.bbcode.img">
+				<categoryname>user.shoutbox.bbcode</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>0</defaultvalue>
+			</option>
+			<option name="user.shoutbox.bbcode.size">
+				<categoryname>user.shoutbox.bbcode</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>0</defaultvalue>
+			</option>
+			<option name="user.shoutbox.bbcode.color">
+				<categoryname>user.shoutbox.bbcode</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>0</defaultvalue>
+			</option>
+			<option name="user.shoutbox.bbcode.font">
+				<categoryname>user.shoutbox.bbcode</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>0</defaultvalue>
+			</option>
+			<option name="user.shoutbox.bbcode.b">
+				<categoryname>user.shoutbox.bbcode</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>0</defaultvalue>
+			</option>
+			<option name="user.shoutbox.bbcode.i">
+				<categoryname>user.shoutbox.bbcode</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>0</defaultvalue>
+			</option>
+			<option name="user.shoutbox.bbcode.u">
+				<categoryname>user.shoutbox.bbcode</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>0</defaultvalue>
+			</option>
+			<option name="user.shoutbox.bbcode.s">
+				<categoryname>user.shoutbox.bbcode</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>0</defaultvalue>
+			</option>
+			<option name="user.shoutbox.bbcode.align">
+				<categoryname>user.shoutbox.bbcode</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>0</defaultvalue>
+			</option>
+			<option name="user.shoutbox.bbcode.list">
+				<categoryname>user.shoutbox.bbcode</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>0</defaultvalue>
+			</option>
+			<option name="user.shoutbox.bbcode.quote">
+				<categoryname>user.shoutbox.bbcode</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>0</defaultvalue>
+			</option>
+			<option name="user.shoutbox.bbcode.code">
+				<categoryname>user.shoutbox.bbcode</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>0</defaultvalue>
+			</option>
+			<option name="user.shoutbox.bbcode.php">
+				<categoryname>user.shoutbox.bbcode</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>0</defaultvalue>
+			</option>
+			<option name="user.shoutbox.bbcode.mysql">
+				<categoryname>user.shoutbox.bbcode</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>0</defaultvalue>
+			</option>
+			<option name="user.shoutbox.bbcode.c">
+				<categoryname>user.shoutbox.bbcode</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>0</defaultvalue>
+			</option>
+			<option name="user.shoutbox.bbcode.cpp">
+				<categoryname>user.shoutbox.bbcode</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>0</defaultvalue>
+			</option>
+			<option name="user.shoutbox.bbcode.attach">
+				<categoryname>user.shoutbox.bbcode</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>0</defaultvalue>
+			</option>
+			<option name="user.shoutbox.bbcode.css">
+				<categoryname>user.shoutbox.bbcode</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>0</defaultvalue>
+			</option>
+			<option name="user.shoutbox.bbcode.email">
+				<categoryname>user.shoutbox.bbcode</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>0</defaultvalue>
+			</option>
+			<option name="user.shoutbox.bbcode.html">
+				<categoryname>user.shoutbox.bbcode</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>0</defaultvalue>
+			</option>
+			<option name="user.shoutbox.bbcode.java">
+				<categoryname>user.shoutbox.bbcode</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>0</defaultvalue>
+			</option>
+			<option name="user.shoutbox.bbcode.js">
+				<categoryname>user.shoutbox.bbcode</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>0</defaultvalue>
+			</option>
+			<option name="user.shoutbox.bbcode.sub">
+				<categoryname>user.shoutbox.bbcode</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>0</defaultvalue>
+			</option>
+			<option name="user.shoutbox.bbcode.sup">
+				<categoryname>user.shoutbox.bbcode</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>0</defaultvalue>
+			</option>
+			<option name="user.shoutbox.bbcode.tpl">
+				<categoryname>user.shoutbox.bbcode</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>0</defaultvalue>
+			</option>
+			<option name="user.shoutbox.bbcode.xml">
+				<categoryname>user.shoutbox.bbcode</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>0</defaultvalue>
+			</option>
+		</options>
+	</import>
+	<delete>
+		<option name="user.shoutbox.canEnterEntryArchives" />
+	</delete>
+</data>
