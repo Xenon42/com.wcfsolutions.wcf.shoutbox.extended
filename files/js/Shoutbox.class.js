@@ -306,9 +306,10 @@ var Shoutbox = Class
 																me : entries[0].childNodes[i].childNodes[7].childNodes[0].nodeValue,
 																isDeletable : entries[0].childNodes[i].childNodes[8].childNodes[0].nodeValue,
 																toUserID : entries[0].childNodes[i].childNodes[9].childNodes[0].nodeValue,
-																toUserName : entries[0].childNodes[i].childNodes[10].childNodes[0].nodeValue,
-																thisUserID : entries[0].childNodes[i].childNodes[11].childNodes[0].nodeValue,
-																prefix : entries[0].childNodes[i].childNodes[12].childNodes[0].nodeValue
+																styledToUserName : entries[0].childNodes[i].childNodes[10].childNodes[0].nodeValue,
+																toUserName : entries[0].childNodes[i].childNodes[11].childNodes[0].nodeValue,
+																thisUserID : entries[0].childNodes[i].childNodes[12].childNodes[0].nodeValue,
+																prefix : entries[0].childNodes[i].childNodes[13].childNodes[0].nodeValue
 															});
 										}
 										this.unneededUpdates = 0;
@@ -399,7 +400,7 @@ var Shoutbox = Class
 												href : '#',
 												style : 'text-decoration:none;',
 												onClick : '$(\'shoutboxMessage\').value=\'/w \"'
-														+ entry.username
+														+ entry.toUserName
 														+ '\"  \'; $(\'shoutboxMessage\').focus();'
 											}).insert(entry.toUserName);
 									entryRow.insert(userLink);
@@ -475,3 +476,4 @@ var Shoutbox = Class
 				}
 			}
 		});
+
