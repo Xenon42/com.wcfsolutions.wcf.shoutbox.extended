@@ -38,12 +38,6 @@ class ViewableShoutboxEntry extends ShoutboxEntry {
 	 */
 	public $messageUsername = '';
 	
-	public function getBotStyle() {
-		
-		return $this->username = WCF::getLanguage ()->get ( 'wcf.shoutbox.bot.style' );
-	
-	}
-	
 	/**
 	 * Returns styled username.
 	 * 
@@ -54,7 +48,11 @@ class ViewableShoutboxEntry extends ShoutboxEntry {
 		if ($this->username == StringUtil::encodeHTML ( WCF::getLanguage ()->get ( 'wcf.shoutbox.bot.neme' ) )) {
 			return sprintf ( WCF::getLanguage ()->get ( 'wcf.shoutbox.bot.style' ), StringUtil::encodeHTML ( $this->toUserName ) );
 		} else {
+			if ($this->usernameStyle == "%s") {
+				$this->usernameStyle = '<span style="font-weight:bold;">%s</span>';
+			}
 			return sprintf ( $this->usernameStyle, StringUtil::encodeHTML ( $this->username ) );
+		
 		}
 		return StringUtil::encodeHTML ( $this->username );
 	}
@@ -68,6 +66,9 @@ class ViewableShoutboxEntry extends ShoutboxEntry {
 		if ($this->username == WCF::getLanguage ()->get ( 'wcf.shoutbox.bot.neme' )) {
 			return sprintf ( WCF::getLanguage ()->get ( 'wcf.shoutbox.bot.style' ), StringUtil::encodeHTML ( $this->toUserName ) );
 		} else {
+			if ($this->usernameStyle == "%s") {
+				$this->usernameStyle = '<span style="font-weight:bold;">%s</span>';
+			}
 			return sprintf ( $this->usernameStyle, StringUtil::encodeHTML ( $this->toUserName ) );
 		}
 		return StringUtil::encodeHTML ( $this->toUserName );
@@ -111,3 +112,4 @@ class ViewableShoutboxEntry extends ShoutboxEntry {
 	}
 }
 ?>
+
