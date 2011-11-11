@@ -113,12 +113,9 @@ class ShoutboxEntryAddAction extends AbstractAction {
 			// get message
 			if (isset ( $_POST ['message'] )) {
 				$this->message = StringUtil::trim ( $_POST ['message'] );
-						
-				//$this->message = preg_replace ( '/[\x00-\x1F\x80-\xFF]/', '', $this->message );
 				if (CHARSET != 'UTF-8') {
 					$this->message = StringUtil::convertEncoding ( 'UTF-8', CHARSET, $this->message );
 				}
-				$this->message = preg_replace('/[^\x09\x0A\x0D\x20-\xD7FF\xE000-\xFFFD\x10000-x10FFFF\x0000F]/', '', $this->message);
 			}
 			if (empty ( $this->message )) {
 				throw new NamedUserException ( WCF::getLanguage ()->get ( 'wcf.shoutbox.entry.error.message.empty' ) );
@@ -169,9 +166,6 @@ class ShoutboxEntryAddAction extends AbstractAction {
 						$this->message = StringUtil::trim ( preg_replace ( '/\/w \"' . $toUser->username . '\"/', '', $this->message ) );
 						$this->toUserID = $toUser->userID;
 						$this->toUserName = $toUser->username;
-						if (empty ( $this->message )) {
-							throw new NamedUserException ( WCF::getLanguage ()->get ( 'wcf.shoutbox.entry.error.message.empty' ) );
-						}
 					} else {
 						throw new NamedUserException ( WCF::getLanguage ()->get ( 'wcf.user.error.username.notValid' ) );
 					}
@@ -467,7 +461,7 @@ class ShoutboxEntryAddAction extends AbstractAction {
 	 */
 	protected function handleBBCodes() {
 		// @TODO: pattern also deletes bbcodes in bbcode, find a better one
-		if (preg_match ( '/^\[.*?\]\s*\[\/.*?\]$/', $this->message, $match )) {
+		if (preg_match('/^\[.*?\]\s*\[\/.*?\]$/', $this->message, $match)) {
 			throw new NamedUserException ( WCF::getLanguage ()->get ( 'wcf.shoutbox.entry.error.message.empty' ) );
 		}
 		$this->message = preg_replace ( '/\[spoiler.*\](.+)\[\/spoiler\]/Ui', '$1', $this->message );
@@ -601,4 +595,3 @@ class ShoutboxEntryAddAction extends AbstractAction {
 }
 
 ?>
-

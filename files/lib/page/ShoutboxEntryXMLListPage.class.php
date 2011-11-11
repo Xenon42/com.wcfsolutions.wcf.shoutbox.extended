@@ -90,8 +90,7 @@ class ShoutboxEntryXMLListPage extends AbstractPage {
 			echo "<me>" . $entry->me . "</me>";
 			echo "<isDeletable>" . intval ( $entry->isDeletable () ) . "</isDeletable>";
 			echo "<toUserID>" . $entry->toUserID . "</toUserID>";
-			echo "<styledToUserName><![CDATA[" . StringUtil::escapeCDATA ( $entry->getStyledToUsername () ) . "]]></styledToUserName>";
-			echo "<toUserName><![CDATA[" . StringUtil::escapeCDATA ( $entry->toUserName ) . "]]></toUserName>";
+			echo "<toUserName><![CDATA[" . StringUtil::escapeCDATA ( $entry->getStyledToUsername () ) . "]]></toUserName>";
 			echo "<thisUserID>" . WCF::getUser ()->userID . "</thisUserID>";
 			echo "<prefix><![CDATA[" . StringUtil::escapeCDATA ( $entry->getWhisperPrefix () ) . "]]></prefix>";
 			echo "</entry>";
@@ -101,4 +100,3 @@ class ShoutboxEntryXMLListPage extends AbstractPage {
 	}
 }
 ?>
-
