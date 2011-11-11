@@ -4,7 +4,7 @@
 		<packagename>Shoutbox Support</packagename>
 		<isunique>1</isunique>
 		<version>2.0.2</version>
-		<date>2011-09-30</date>
+		<date>2011-11-11</date>
 	</packageinformation>
 	
 	<authorinformation>
@@ -49,6 +49,7 @@
 		<languages languagecode="de">de.xml</languages>
 		<languages languagecode="de-informal">de-informal.xml</languages>
 	</instructions>
-	<instructions>
-		<files>files.tar</files></instructions>
+	<instructions type="update" fromversion="2.0.1">
+		<files>files.tar</files>
+	</instructions>
 </package>
