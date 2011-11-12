@@ -3,7 +3,7 @@
 require_once (WCF_DIR . 'lib/data/shoutbox/ShoutboxEntryFactory.class.php');
 require_once (WCF_DIR . 'lib/page/AbstractPage.class.php');
 /**
- * Outputs an XML document with a list of shoutbox bans.
+ * Outputs an XML document with a list of ignored users.
  * 
  * @original author	Thomas Wegner
  * @license		GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>

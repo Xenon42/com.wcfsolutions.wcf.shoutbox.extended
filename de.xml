@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<language languagecode="de" xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<language languagecode="de" xmlns="http://www.woltlab.com"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<category name="wcf.acp.group">
 		<item name="wcf.acp.group.option.category.admin.shoutbox"><![CDATA[Shoutbox]]></item>
 		<item name="wcf.acp.group.option.category.admin.shoutbox.description"><![CDATA[]]>
@@ -32,13 +33,16 @@
 		<item name="wcf.acp.group.option.user.shoutbox.canWhisper"><![CDATA[Kann flüstern]]></item>
 		<item name="wcf.acp.group.option.user.shoutbox.canWhisper.description"><![CDATA[Mitglieder dieser Benutzergruppe können in der Shoutbox flüstern.]]></item>
 		<item name="wcf.acp.group.option.user.shoutbox.canDeleteOwnEntry"><![CDATA[Kann eigene Einträge löschen]]></item>
-		<item name="wcf.acp.group.option.user.shoutbox.canDeleteOwnEntry.description"><![CDATA[Mitglieder dieser Benutzergruppe können eigene Einträge löschen.]]></item>
+		<item
+			name="wcf.acp.group.option.user.shoutbox.canDeleteOwnEntry.description"><![CDATA[Mitglieder dieser Benutzergruppe können eigene Einträge löschen.]]></item>
 		<item name="wcf.acp.group.option.user.shoutbox.canViewEntryArchives"><![CDATA[Kann Shoutbox Eintragsarchiv betreten]]></item>
-		<item name="wcf.acp.group.option.user.shoutbox.canViewEntryArchives.description"><![CDATA[Mitglieder dieser Benutzergruppe können das Shoutbox Eintragsarchiv betreten.]]></item>
+		<item
+			name="wcf.acp.group.option.user.shoutbox.canViewEntryArchives.description"><![CDATA[Mitglieder dieser Benutzergruppe können das Shoutbox Eintragsarchiv betreten.]]></item>
 		<item name="wcf.acp.group.option.user.shoutbox.canViewShoutbox"><![CDATA[Kann Shoutbox sehen]]></item>
 		<item name="wcf.acp.group.option.user.shoutbox.canViewShoutbox.description"><![CDATA[Mitglieder dieser Benutzergruppe können die Shoutbox sehen.]]></item>
 		<item name="wcf.acp.group.option.user.shoutbox.floodControlTime"><![CDATA[Flood-Control Zeit]]></item>
-		<item name="wcf.acp.group.option.user.shoutbox.floodControlTime.description"><![CDATA[Wie viele Sekunden müssen Mitglieder dieser Benutzergruppe nach einem geschriebenen Eintrag warten, bis sie einen weiteren schreiben können?]]></item>
+		<item
+			name="wcf.acp.group.option.user.shoutbox.floodControlTime.description"><![CDATA[Wie viele Sekunden müssen Mitglieder dieser Benutzergruppe nach einem geschriebenen Eintrag warten, bis sie einen weiteren schreiben können?]]></item>
 		<item name="wcf.acp.group.option.user.shoutbox.maxEntryLength"><![CDATA[Maximale Eintragslänge]]></item>
 		<item name="wcf.acp.group.option.user.shoutbox.maxEntryLength.description"><![CDATA[Wie viele Zeichen kann ein Shoutbox-Eintrag von Mitgliedern dieser Benutzergruppe maximal haben?]]></item>
 		<item name="wcf.acp.group.option.user.shoutbox.bbcode.img"><![CDATA[Kann img-BBCode verwenden]]></item>
@@ -56,9 +60,9 @@
 		<item name="wcf.acp.group.option.user.shoutbox.bbcode.u"><![CDATA[Kann u-BBCode verwenden]]></item>
 		<item name="wcf.acp.group.option.user.shoutbox.bbcode.u.description"><![CDATA[Mitglieder dieser Benutzergruppe können Text durchstreichen.]]></item>
 		<item name="wcf.acp.group.option.user.shoutbox.bbcode.sub"><![CDATA[Kann sub-BBCode verwenden]]></item>
-		<item name="wcf.acp.group.option.user.shoutbox.bbcode.sub.description"><![CDATA[Mitglieder dieser Benutzergruppe können Text tiefstellen.]]></item>		
+		<item name="wcf.acp.group.option.user.shoutbox.bbcode.sub.description"><![CDATA[Mitglieder dieser Benutzergruppe können Text tiefstellen.]]></item>
 		<item name="wcf.acp.group.option.user.shoutbox.bbcode.sup"><![CDATA[Kann sup-BBCode verwenden]]></item>
-		<item name="wcf.acp.group.option.user.shoutbox.bbcode.sup.description"><![CDATA[Mitglieder dieser Benutzergruppe können Text hochstellen.]]></item>	
+		<item name="wcf.acp.group.option.user.shoutbox.bbcode.sup.description"><![CDATA[Mitglieder dieser Benutzergruppe können Text hochstellen.]]></item>
 		<item name="wcf.acp.group.option.user.shoutbox.bbcode.s"><![CDATA[Kann s-BBCode verwenden]]></item>
 		<item name="wcf.acp.group.option.user.shoutbox.bbcode.s.description"><![CDATA[Mitglieder dieser Benutzergruppe können Text durchstreichen.]]></item>
 		<item name="wcf.acp.group.option.user.shoutbox.bbcode.align"><![CDATA[Kann align-BBCode verwenden]]></item>
@@ -66,7 +70,7 @@
 		<item name="wcf.acp.group.option.user.shoutbox.bbcode.list"><![CDATA[Kann list-BBCode verwenden]]></item>
 		<item name="wcf.acp.group.option.user.shoutbox.bbcode.list.description"><![CDATA[Mitglieder dieser Benutzergruppe können Listen verwenden.]]></item>
 		<item name="wcf.acp.group.option.user.shoutbox.bbcode.attach"><![CDATA[Kann attach-BBCode verwenden]]></item>
-		<item name="wcf.acp.group.option.user.shoutbox.bbcode.attach.description"><![CDATA[Mitglieder dieser Benutzergruppe können Dateianhänge posten.]]></item>		
+		<item name="wcf.acp.group.option.user.shoutbox.bbcode.attach.description"><![CDATA[Mitglieder dieser Benutzergruppe können Dateianhänge posten.]]></item>
 		<item name="wcf.acp.group.option.user.shoutbox.bbcode.quote"><![CDATA[Kann quote-BBCode verwenden]]></item>
 		<item name="wcf.acp.group.option.user.shoutbox.bbcode.quote.description"><![CDATA[Mitglieder dieser Benutzergruppe können Zitate verwenden.]]></item>
 		<item name="wcf.acp.group.option.user.shoutbox.bbcode.code"><![CDATA[Kann code-BBCode verwenden]]></item>
@@ -80,19 +84,20 @@
 		<item name="wcf.acp.group.option.user.shoutbox.bbcode.cpp"><![CDATA[Kann cpp-BBCode verwenden]]></item>
 		<item name="wcf.acp.group.option.user.shoutbox.bbcode.cpp.description"><![CDATA[Mitglieder dieser Benutzergruppe können C++-Code verwenden.]]></item>
 		<item name="wcf.acp.group.option.user.shoutbox.bbcode.css"><![CDATA[Kann css-BBCode verwenden]]></item>
-		<item name="wcf.acp.group.option.user.shoutbox.bbcode.css.description"><![CDATA[Mitglieder dieser Benutzergruppe können CSS-Code verwenden.]]></item>		
+		<item name="wcf.acp.group.option.user.shoutbox.bbcode.css.description"><![CDATA[Mitglieder dieser Benutzergruppe können CSS-Code verwenden.]]></item>
 		<item name="wcf.acp.group.option.user.shoutbox.bbcode.email"><![CDATA[Kann email-BBCode verwenden]]></item>
-		<item name="wcf.acp.group.option.user.shoutbox.bbcode.email.description"><![CDATA[Mitglieder dieser Benutzergruppe können EMail-Adressen posten.]]></item>		
+		<item name="wcf.acp.group.option.user.shoutbox.bbcode.email.description"><![CDATA[Mitglieder dieser Benutzergruppe können EMail-Adressen posten.]]></item>
 		<item name="wcf.acp.group.option.user.shoutbox.bbcode.html"><![CDATA[Kann html-BBCode verwenden]]></item>
-		<item name="wcf.acp.group.option.user.shoutbox.bbcode.html.description"><![CDATA[Mitglieder dieser Benutzergruppe können HTML-Code verwenden.]]></item>		
+		<item name="wcf.acp.group.option.user.shoutbox.bbcode.html.description"><![CDATA[Mitglieder dieser Benutzergruppe können HTML-Code verwenden.]]></item>
 		<item name="wcf.acp.group.option.user.shoutbox.bbcode.java"><![CDATA[Kann java-BBCode verwenden]]></item>
-		<item name="wcf.acp.group.option.user.shoutbox.bbcode.java.description"><![CDATA[Mitglieder dieser Benutzergruppe können Java-Code verwenden.]]></item>		
+		<item name="wcf.acp.group.option.user.shoutbox.bbcode.java.description"><![CDATA[Mitglieder dieser Benutzergruppe können Java-Code verwenden.]]></item>
 		<item name="wcf.acp.group.option.user.shoutbox.bbcode.js"><![CDATA[Kann js-BBCode verwenden]]></item>
-		<item name="wcf.acp.group.option.user.shoutbox.bbcode.js.description"><![CDATA[Mitglieder dieser Benutzergruppe können JavaScript-Code verwenden.]]></item>		
+		<item name="wcf.acp.group.option.user.shoutbox.bbcode.js.description"><![CDATA[Mitglieder dieser Benutzergruppe können JavaScript-Code verwenden.]]></item>
 		<item name="wcf.acp.group.option.user.shoutbox.bbcode.quote"><![CDATA[Kann quote-BBCode verwenden]]></item>
-		<item name="wcf.acp.group.option.user.shoutbox.bbcode.quote.description"><![CDATA[Mitglieder dieser Benutzergruppe können Zitate verwenden.]]></item>			
+		<item name="wcf.acp.group.option.user.shoutbox.bbcode.quote.description"><![CDATA[Mitglieder dieser Benutzergruppe können Zitate verwenden.]]></item>
 		<item name="wcf.acp.group.option.user.shoutbox.bbcode.tpl"><![CDATA[Kann tpl-BBCode verwenden]]></item>
-		<item name="wcf.acp.group.option.user.shoutbox.bbcode.tpl.description"><![CDATA[Mitglieder dieser Benutzergruppe können TPL-Code verwenden.]]></item>		<item name="wcf.acp.group.option.user.shoutbox.bbcode.xml"><![CDATA[Kann xml-BBCode verwenden]]></item>
+		<item name="wcf.acp.group.option.user.shoutbox.bbcode.tpl.description"><![CDATA[Mitglieder dieser Benutzergruppe können TPL-Code verwenden.]]></item>
+		<item name="wcf.acp.group.option.user.shoutbox.bbcode.xml"><![CDATA[Kann xml-BBCode verwenden]]></item>
 		<item name="wcf.acp.group.option.user.shoutbox.bbcode.xml.description"><![CDATA[Mitglieder dieser Benutzergruppe können XML-Code verwenden.]]></item>
 
 	</category>

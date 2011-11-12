@@ -37,7 +37,7 @@ class ViewableShoutboxEntry extends ShoutboxEntry {
 	 * @var string
 	 */
 	public $messageUsername = '';
-		
+	
 	/**
 	 * Returns styled username.
 	 * 
@@ -107,7 +107,7 @@ class ViewableShoutboxEntry extends ShoutboxEntry {
 		}
 		$parser = MessageParser::getInstance ();
 		$parser->setOutputType ( 'text/html' );
-		return $parser->parse ( $this->message, 1, 0, 1, false );
+		return $parser->parse ( URLParser::parse ( $this->message ), 1, 0, 1, false );
 	}
 }
 ?>
