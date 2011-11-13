@@ -116,6 +116,7 @@ class ShoutboxEntryAddAction extends AbstractAction {
 				if (CHARSET != 'UTF-8') {
 					$this->message = StringUtil::convertEncoding ( 'UTF-8', CHARSET, $this->message );
 				}
+				$this->message = preg_replace('/[^\x09\x0A\x0D\x20-\xD7FF\xE000-\xFFFD\x10000-x10FFFF\x0000F]/', '', $this->message);
 			}
 			if (empty ( $this->message )) {
 				throw new NamedUserException ( WCF::getLanguage ()->get ( 'wcf.shoutbox.entry.error.message.empty' ) );
@@ -166,6 +167,9 @@ class ShoutboxEntryAddAction extends AbstractAction {
 						$this->message = StringUtil::trim ( preg_replace ( '/\/w \"' . $toUser->username . '\"/', '', $this->message ) );
 						$this->toUserID = $toUser->userID;
 						$this->toUserName = $toUser->username;
+						if (empty ( $this->message )) {
+							throw new NamedUserException ( WCF::getLanguage ()->get ( 'wcf.shoutbox.entry.error.message.empty' ) );
+						}
 					} else {
 						throw new NamedUserException ( WCF::getLanguage ()->get ( 'wcf.user.error.username.notValid' ) );
 					}
