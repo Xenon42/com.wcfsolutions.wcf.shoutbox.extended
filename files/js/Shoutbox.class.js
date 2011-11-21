@@ -402,7 +402,7 @@ var Shoutbox = Class
 												onClick : '$(\'shoutboxMessage\').value=\'/w \"'
 														+ entry.toUserName
 														+ '\"  \'; $(\'shoutboxMessage\').focus();'
-											}).insert(entry.styledToUserName);
+											}).insert(entry.toUserName);
 									entryRow.insert(userLink);
 								}
 

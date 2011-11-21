@@ -464,9 +464,15 @@ class ShoutboxEntryAddAction extends AbstractAction {
 	 * Handles BBCodes
 	 */
 	protected function handleBBCodes() {
-		// @TODO: pattern also deletes bbcodes in bbcode, find a better one
-		if (preg_match ( '/^\[.*?\]\s*\[\/.*?\]$/', $this->message, $match )) {
-			throw new NamedUserException ( WCF::getLanguage ()->get ( 'wcf.shoutbox.entry.error.message.empty' ) );
+		// @TODO: find a better solution
+		$tmp = $this->message;
+		$count = 0;
+		$tmp = preg_replace('/\[.+?\]/', '', $tmp);
+		$tmp = preg_replace('/\[\/.+?\]/', '', $tmp);
+		//$tmp = preg_replace('/^\[.*?\]\[\/.*?\]$/', '', $tmp);
+		$tmp = StringUtil::trim($tmp);
+		if (empty ( $tmp )) {
+				throw new NamedUserException ( WCF::getLanguage ()->get ( 'wcf.shoutbox.entry.error.message.empty' ) );
 		}
 		$this->message = preg_replace ( '/\[spoiler.*\](.+)\[\/spoiler\]/Ui', '$1', $this->message );
 		$this->message = preg_replace ( '/\[youtube.*\](.+)\[\/youtube\]/Ui', '$1', $this->message );
