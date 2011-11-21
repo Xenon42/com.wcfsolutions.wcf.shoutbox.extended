@@ -107,7 +107,11 @@ class ViewableShoutboxEntry extends ShoutboxEntry {
 		}
 		$parser = MessageParser::getInstance ();
 		$parser->setOutputType ( 'text/html' );
+<<<<<<< HEAD
 		return $parser->parse ( URLParser::parse ( $this->message ), 1, 0, 1, false );
+=======
+		 return $parser->parse(URLParser::parse($this->message), 1, 0, 1, false);  
+>>>>>>> a1de1eb294eea6ce8f4e9c8e6af66a5d0037b8ec
 	}
 }
 ?>

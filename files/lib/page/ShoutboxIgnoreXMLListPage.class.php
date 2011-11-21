@@ -48,9 +48,11 @@ class ShoutboxIgnoreXMLListPage extends AbstractPage
             $user = new User($value['blackUserID'], null, null, null);
             array_push($list, $user->username);
         }
+        if (!empty($list)) {
         echo "<usernames>";
         echo "<list><![CDATA[" . implode("|", $list) . "]]></list>";
         echo "</usernames>";
+        }
         echo "</blacklist>";
         exit();
     }
