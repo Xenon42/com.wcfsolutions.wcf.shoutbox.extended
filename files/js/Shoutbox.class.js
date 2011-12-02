@@ -386,7 +386,6 @@ var Shoutbox = Class
 									var userLink = new Element(
 											'a',
 											{
-												href : '#',
 												style : 'text-decoration:none;',
 												onClick : '$(\'shoutboxMessage\').value=\'/w \"'
 														+ entry.username
@@ -397,7 +396,6 @@ var Shoutbox = Class
 									var userLink = new Element(
 											'a',
 											{
-												href : '#',
 												style : 'text-decoration:none;',
 												onClick : '$(\'shoutboxMessage\').value=\'/w \"'
 														+ entry.toUserName

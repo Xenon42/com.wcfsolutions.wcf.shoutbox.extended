@@ -3,15 +3,15 @@
 	<packageinformation>
 		<packagename>Shoutbox Support</packagename>
 		<isunique>1</isunique>
-		<version>2.0.4</version>
-		<date>2011-11-21</date>
+		<version>2.0.5</version>
+		<date>2011-12-02</date>
 	</packageinformation>
-	
+
 	<authorinformation>
 		<author>WCF Solutions (forked by i2c)</author>
 		<authorurl></authorurl>
 	</authorinformation>
-	
+
 	<requiredpackages>
 		<requiredpackage minversion="1.1.0 Beta 1">com.woltlab.wcf</requiredpackage>
 		<requiredpackage minversion="1.1.0 Beta 1">com.woltlab.wcf.data.cronjobs</requiredpackage>
@@ -19,24 +19,24 @@
 		<requiredpackage minversion="1.1.0 Beta 1">com.woltlab.wcf.data.page.headerMenu</requiredpackage>
 		<requiredpackage minversion="1.1.0 Beta 1">com.woltlab.wcf.data.page</requiredpackage>
 	</requiredpackages>
-	
+
 	<excludedpackages>
 		<excludedpackage>com.wcfsolutions.wbb.shoutbox.index</excludedpackage>
 		<excludedpackage>com.wcfsolutions.wbb.shoutbox.portal</excludedpackage>
 		<excludedpackage>com.wcfsolutions.wcf.shoutbox</excludedpackage>
 	</excludedpackages>
-	
+
 	<optionalpackages>
 		<optionalpackage file="optionals/com.wcfsolutions.wcf.shoutbox.entry.userOnlineMarking.fork.i2c.tar">com.wcfsolutions.wcf.shoutbox.entry.userOnlineMarking.fork.i2c</optionalpackage>
 	</optionalpackages>
-	
+
 	<instructions type="install">
 		<!-- files -->
 		<files>files.tar</files>
 		<templates>templates.tar</templates>
 		<sql>install.sql</sql>
 		<script>acp/install_shoutbox.php</script>
-		
+
 		<!-- config -->
 		<pagemenu>pagemenu.xml</pagemenu>
 		<pagelocation>pagelocation.xml</pagelocation>
@@ -44,18 +44,25 @@
 		<options>options.xml</options>
 		<cronjobs>cronjobs.xml</cronjobs>
 		<feedsource>feedsource.xml</feedsource>
-		
+
 		<!-- languages -->
 		<languages languagecode="de">de.xml</languages>
 		<languages languagecode="de-informal">de-informal.xml</languages>
 	</instructions>
 	<instructions type="update" fromversion="2.0.1">
 		<files>files.tar</files>
+		<templates>templates.tar</templates>
 	</instructions>
 	<instructions type="update" fromversion="2.0.2">
 		<files>files.tar</files>
+		<templates>templates.tar</templates>
 	</instructions>
 	<instructions type="update" fromversion="2.0.3">
 		<files>files.tar</files>
+		<templates>templates.tar</templates>
+	</instructions>
+	<instructions type="update" fromversion="2.0.4">
+		<files>files.tar</files>
+		<templates>templates.tar</templates>
 	</instructions>
 </package>
