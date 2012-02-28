@@ -3,8 +3,8 @@
 	<packageinformation>
 		<packagename>Shoutbox Support</packagename>
 		<isunique>1</isunique>
-		<version>2.0.5</version>
-		<date>2011-12-02</date>
+		<version>2.0.6</version>
+		<date>2012-02-29</date>
 	</packageinformation>
 
 	<authorinformation>
@@ -62,6 +62,10 @@
 		<templates>templates.tar</templates>
 	</instructions>
 	<instructions type="update" fromversion="2.0.4">
+		<files>files.tar</files>
+		<templates>templates.tar</templates>
+	</instructions>
+	<instructions type="update" fromversion="2.0.5">
 		<files>files.tar</files>
 		<templates>templates.tar</templates>
 	</instructions>

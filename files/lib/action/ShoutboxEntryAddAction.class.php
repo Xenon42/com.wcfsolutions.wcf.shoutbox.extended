@@ -8,7 +8,7 @@ require_once (WCF_DIR . 'lib/data/shoutbox/ShoutboxEntryEditor.class.php');
  *
  * @midified by Thomas Wegner
  * @original author	Sebastian Oettl
- * 
+ *
  * @copyright 2009-2011 WCF Solutions <http://www.wcfsolutions.com/index.html>
  * @license GNU Lesser General Public License
  *          <http://opensource.org/licenses/lgpl-license.php>
@@ -169,7 +169,7 @@ class ShoutboxEntryAddAction extends AbstractAction {
 						throw new NamedUserException ( WCF::getLanguage ()->get ( 'wcf.shoutbox.bot.answer' ) );
 					}
 					if ($toUser->userID != 0) {
-						$this->message = StringUtil::trim ( preg_replace ( '/\/' . $this->command . ' \"' . $toUser->username . '\"/', '', $this->message ) );
+						$this->message = StringUtil::trim ( preg_replace ( '/\/' . $this->command . ' \"' . $match [1] . '\"/', '', $this->message ) );
 						$this->toUserID = $toUser->userID;
 						$this->toUserName = $toUser->username;
 						if (empty ( $this->message )) {

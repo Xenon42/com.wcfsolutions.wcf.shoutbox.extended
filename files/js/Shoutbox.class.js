@@ -1,8 +1,9 @@
 /**
- * @midified by 	Thomas Wegner
- * @original author	Sebastian Oettl
- * @copyright		2009-2011 WCF Solutions <http://www.wcfsolutions.com/index.html>
- * @license		GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>
+ * @midified by Thomas Wegner
+ * @original author Sebastian Oettl
+ * @copyright 2009-2011 WCF Solutions <http://www.wcfsolutions.com/index.html>
+ * @license GNU Lesser General Public License
+ *          <http://opensource.org/licenses/lgpl-license.php>
  */
 var Shoutbox = Class
 		.create({
@@ -128,61 +129,63 @@ var Shoutbox = Class
 				}
 			},
 
-			
 			insertBBCode : function(aTag, eTag) {
 				var input = $(this.shoutboxID + 'Message');
-				  input.focus();
-				  /* für Internet Explorer */
-				  if(typeof document.selection != 'undefined') {
-				    /* Einfügen des Formatierungscodes */
-				    var range = document.selection.createRange();
-				    var insText = range.text;
-				    range.text = aTag + insText + eTag;
-				    /* Anpassen der Cursorposition */
-				    range = document.selection.createRange();
-				    if (insText.length == 0) {
-				      range.move('character', -eTag.length);
-				    } else {
-				      range.moveStart('character', aTag.length + insText.length + eTag.length);      
-				    }
-				    range.select();
-				  }
-				  /* für neuere auf Gecko basierende Browser */
-				  else if(typeof input.selectionStart != 'undefined')
-				  {
-				    /* Einfügen des Formatierungscodes */
-				    var start = input.selectionStart;
-				    var end = input.selectionEnd;
-				    var insText = input.value.substring(start, end);
-				    input.value = input.value.substr(0, start) + aTag + insText + eTag + input.value.substr(end);
-				    /* Anpassen der Cursorposition */
-				    var pos;
-				    if (insText.length == 0) {
-				      pos = start + aTag.length;
-				    } else {
-				      pos = start + aTag.length + insText.length + eTag.length;
-				    }
-				    input.selectionStart = pos;
-				    input.selectionEnd = pos;
-				  }
-				  /* für die übrigen Browser */
-				  else
-				  {
-				    /* Abfrage der Einfügeposition */
-				    var pos;
-				    var re = new RegExp('^[0-9]{0,3}$');
-				    while(!re.test(pos)) {
-				      pos = prompt("Einfügen an Position (0.." + input.value.length + "):", "0");
-				    }
-				    if(pos > input.value.length) {
-				      pos = input.value.length;
-				    }
-				    /* Einfügen des Formatierungscodes */
-				    var insText = prompt("Bitte geben Sie den zu formatierenden Text ein:");
-				    input.value = input.value.substr(0, pos) + aTag + insText + eTag + input.value.substr(pos);
-				  }
-				},
-			
+				input.focus();
+				/* für Internet Explorer */
+				if (typeof document.selection != 'undefined') {
+					/* Einfügen des Formatierungscodes */
+					var range = document.selection.createRange();
+					var insText = range.text;
+					range.text = aTag + insText + eTag;
+					/* Anpassen der Cursorposition */
+					range = document.selection.createRange();
+					if (insText.length == 0) {
+						range.move('character', -eTag.length);
+					} else {
+						range.moveStart('character', aTag.length
+								+ insText.length + eTag.length);
+					}
+					range.select();
+				}
+				/* für neuere auf Gecko basierende Browser */
+				else if (typeof input.selectionStart != 'undefined') {
+					/* Einfügen des Formatierungscodes */
+					var start = input.selectionStart;
+					var end = input.selectionEnd;
+					var insText = input.value.substring(start, end);
+					input.value = input.value.substr(0, start) + aTag + insText
+							+ eTag + input.value.substr(end);
+					/* Anpassen der Cursorposition */
+					var pos;
+					if (insText.length == 0) {
+						pos = start + aTag.length;
+					} else {
+						pos = start + aTag.length + insText.length
+								+ eTag.length;
+					}
+					input.selectionStart = pos;
+					input.selectionEnd = pos;
+				}
+				/* für die übrigen Browser */
+				else {
+					/* Abfrage der Einfügeposition */
+					var pos;
+					var re = new RegExp('^[0-9]{0,3}$');
+					while (!re.test(pos)) {
+						pos = prompt("Einfügen an Position (0.."
+								+ input.value.length + "):", "0");
+					}
+					if (pos > input.value.length) {
+						pos = input.value.length;
+					}
+					/* Einfügen des Formatierungscodes */
+					var insText = prompt("Bitte geben Sie den zu formatierenden Text ein:");
+					input.value = input.value.substr(0, pos) + aTag + insText
+							+ eTag + input.value.substr(pos);
+				}
+			},
+
 			/**
 			 * Adds a new entry.
 			 */
@@ -306,10 +309,9 @@ var Shoutbox = Class
 																me : entries[0].childNodes[i].childNodes[7].childNodes[0].nodeValue,
 																isDeletable : entries[0].childNodes[i].childNodes[8].childNodes[0].nodeValue,
 																toUserID : entries[0].childNodes[i].childNodes[9].childNodes[0].nodeValue,
-																styledToUserName : entries[0].childNodes[i].childNodes[10].childNodes[0].nodeValue,
-																toUserName : entries[0].childNodes[i].childNodes[11].childNodes[0].nodeValue,
-																thisUserID : entries[0].childNodes[i].childNodes[12].childNodes[0].nodeValue,
-																prefix : entries[0].childNodes[i].childNodes[13].childNodes[0].nodeValue
+																toUserName : entries[0].childNodes[i].childNodes[10].childNodes[0].nodeValue,
+																thisUserID : entries[0].childNodes[i].childNodes[11].childNodes[0].nodeValue,
+																prefix : entries[0].childNodes[i].childNodes[12].childNodes[0].nodeValue
 															});
 										}
 										this.unneededUpdates = 0;
@@ -400,7 +402,7 @@ var Shoutbox = Class
 												onClick : '$(\'shoutboxMessage\').value=\'/w \"'
 														+ entry.toUserName
 														+ '\"  \'; $(\'shoutboxMessage\').focus();'
-											}).insert(entry.toUserName);
+											}).insert(entry.styledUsername);
 									entryRow.insert(userLink);
 								}
 
