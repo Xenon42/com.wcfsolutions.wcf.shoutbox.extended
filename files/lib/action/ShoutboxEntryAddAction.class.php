@@ -5,65 +5,70 @@ require_once (WCF_DIR . 'lib/data/shoutbox/ShoutboxEntryEditor.class.php');
 
 /**
  * Adds a new shoutbox entry.
+ *
+ * @midified by Thomas Wegner
+ * @original author	Sebastian Oettl
  * 
- * @author	Sebastian Oettl
- * @copyright	2009-2011 WCF Solutions <http://www.wcfsolutions.com/index.html>
- * @license	GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>
- * @package	com.wcfsolutions.wcf.shoutbox
- * @subpackage	action
- * @category	Community Framework
+ * @copyright 2009-2011 WCF Solutions <http://www.wcfsolutions.com/index.html>
+ * @license GNU Lesser General Public License
+ *          <http://opensource.org/licenses/lgpl-license.php>
+ * @package com.wcfsolutions.wcf.shoutbox.fork.i2c
+ *          @original package	com.wcfsolutions.wcf.shoutbox
+ * @subpackage action
+ * @category Community Framework
  */
 class ShoutboxEntryAddAction extends AbstractAction {
 	/**
 	 * username
-	 * 
-	 * @var	string
+	 *
+	 * @var string
 	 */
 	public $username = '';
 	
 	/**
 	 * new message
-	 * 
-	 * @var	string
+	 *
+	 * @var string
 	 */
 	public $message = '';
 	
 	/**
 	 * me
-	 * 
-	 * @var	integer
+	 *
+	 * @var integer
 	 */
 	public $me = 0;
 	
 	/**
 	 * command
-	 * 
-	 * @var	string
+	 *
+	 * @var string
 	 */
 	public $command = '';
 	
 	/**
 	 * whisper to userID
-	 * 
-	 * @var	integer
+	 *
+	 * @var integer
 	 */
 	public $toUserID = 0;
 	
 	/**
 	 * whisper to username
-	 * 
-	 * @var	string
+	 *
+	 * @var string
 	 */
 	public $toUserName = '';
 	
 	/**
 	 * new shoutbox entry editor object
-	 * 
-	 * @var	ShoutboxEntryEditor
+	 *
+	 * @var ShoutboxEntryEditor
 	 */
 	public $entry = null;
 	
 	/**
+	 *
 	 * @see Action::readParameters()
 	 */
 	public function readParameters() {
@@ -73,7 +78,7 @@ class ShoutboxEntryAddAction extends AbstractAction {
 			// check permissions
 			WCF::getUser ()->checkPermission ( 'user.shoutbox.canAddEntry' );
 			
-			// do flood control	
+			// do flood control
 			if (WCF::getUser ()->getPermission ( 'user.shoutbox.floodControlTime' )) {
 				$sql = "SELECT		time
 					FROM		wcf" . WCF_N . "_shoutbox_entry
@@ -150,11 +155,11 @@ class ShoutboxEntryAddAction extends AbstractAction {
 	 * handles possible commands
 	 */
 	public function handleCommands() {
-		switch ($this->command) {
+		switch (StringUtil::toLowerCase ( $this->command )) {
 			case 'w' :
 				If (! WCF::getUser ()->getPermission ( 'user.shoutbox.canWhisper' )) {
 					throw new NamedUserException ( WCF::getLanguage ()->get ( 'wcf.shoutbox.whisper.noWhisper' ) );
-				} else if (! preg_match ( '/\/w \"(.+?)\"/', $this->message, $match )) {
+				} else if (! preg_match ( '/\/w \"(.+?)\"/i', $this->message, $match )) {
 					throw new NamedUserException ( WCF::getLanguage ()->get ( 'wcf.shoutbox.whisper.wrongWhisper' ) );
 				} else {
 					$toUser = new User ( null, null, $match [1], null );
@@ -164,7 +169,7 @@ class ShoutboxEntryAddAction extends AbstractAction {
 						throw new NamedUserException ( WCF::getLanguage ()->get ( 'wcf.shoutbox.bot.answer' ) );
 					}
 					if ($toUser->userID != 0) {
-						$this->message = StringUtil::trim ( preg_replace ( '/\/w \"' . $toUser->username . '\"/', '', $this->message ) );
+						$this->message = StringUtil::trim ( preg_replace ( '/\/' . $this->command . ' \"' . $toUser->username . '\"/', '', $this->message ) );
 						$this->toUserID = $toUser->userID;
 						$this->toUserName = $toUser->username;
 						if (empty ( $this->message )) {
@@ -176,11 +181,11 @@ class ShoutboxEntryAddAction extends AbstractAction {
 				}
 				break;
 			case 'me' :
-				$this->message = '[i]' . str_replace ( '/me ', '', $this->message ) . '[/i]';
+				$this->message = '[i]' . str_replace ( '/' . $this->command, '', $this->message ) . '[/i]';
 				$this->me = 1;
 			case 'del' :
 				if (WCF::getUser ()->getPermission ( 'mod.shoutbox.canDeleteEntry' ) || WCF::getUser ()->getPermission ( 'user.shoutbox.canDeleteOwnEntry' )) {
-					if (! preg_match ( '/\/del\s(\d+)/', $this->message, $match )) {
+					if (! preg_match ( '/\/del\s(\d+)/i', $this->message, $match )) {
 						return;
 					}
 					$entry = new ShoutboxEntryEditor ( $match [1] );
@@ -198,7 +203,7 @@ class ShoutboxEntryAddAction extends AbstractAction {
 			case 'ignore' :
 				If (! WCF::getUser ()->getPermission ( 'user.shoutbox.canIgnoreUser' )) {
 					throw new NamedUserException ( WCF::getLanguage ()->get ( 'wcf.shoutbox.ignore.noIgnore' ) );
-				} else if (! preg_match ( '/\/ignore \"(.+?)\"/', $this->message, $match )) {
+				} else if (! preg_match ( '/\/ignore \"(.+?)\"/i', $this->message, $match )) {
 					throw new NamedUserException ( WCF::getLanguage ()->get ( 'wcf.shoutbox.ignore.wrongIgnore' ) );
 				} else {
 					$igUser = new User ( null, null, $match [1], null );
@@ -241,7 +246,7 @@ class ShoutboxEntryAddAction extends AbstractAction {
 			case 'unignore' :
 				If (! WCF::getUser ()->getPermission ( 'user.shoutbox.canIgnoreUser' )) {
 					return;
-				} else if (! preg_match ( '/\/unignore \"(.+?)\"/', $this->message, $match )) {
+				} else if (! preg_match ( '/\/unignore \"(.+?)\"/i', $this->message, $match )) {
 					throw new NamedUserException ( WCF::getLanguage ()->get ( 'wcf.shoutbox.ignore.wrongUnignore' ) );
 				} else {
 					$unigUser = new User ( null, null, $match [1], null );
@@ -277,8 +282,8 @@ class ShoutboxEntryAddAction extends AbstractAction {
 				}
 				break;
 			case 'blacklist' :
-				$this->message = str_replace ( '/blacklist ', '', $this->message );
-				if ($this->message == 'show') {
+				$this->message = str_replace ( '/' . $this->command . ' ', '', $this->message );
+				if (StringUtil::toLowerCase ( $this->message ) == 'show') {
 					if (! WCF::getUser ()->getPermission ( 'user.shoutbox.canIgnoreUser' )) {
 						exit ();
 					}
@@ -307,7 +312,6 @@ class ShoutboxEntryAddAction extends AbstractAction {
 						$this->toUserName = WCF::getUser ()->username;
 					}
 				} else {
-					$this->message = '/blacklist ' . $this->message;
 					return;
 				}
 				break;
@@ -315,9 +319,9 @@ class ShoutboxEntryAddAction extends AbstractAction {
 				if (! WCF::getUser ()->getPermission ( 'mod.shoutbox.canBanUser' )) {
 					return;
 				}
-				if (preg_match ( '/\/ban\s\"(.+?)\"\s(\d+)\s(.*)/', $this->message, $match )) {
+				if (preg_match ( '/\/ban\s\"(.+?)\"\s(\d+)\s(.*)/i', $this->message, $match )) {
 					$reason = '[b]Grund:[/b] ' . $match [3];
-				} elseif (preg_match ( '/\/ban\s\"(.+?)\"\s(\d+)/', $this->message, $match )) {
+				} elseif (preg_match ( '/\/ban\s\"(.+?)\"\s(\d+)/i', $this->message, $match )) {
 					$reason = '';
 				} else {
 					return;
@@ -351,7 +355,7 @@ class ShoutboxEntryAddAction extends AbstractAction {
 				if (! WCF::getUser ()->getPermission ( 'mod.shoutbox.canUnbanUser' )) {
 					return;
 				}
-				if (! preg_match ( '/\/unban\s\"(.+?)\"/', $this->message, $match )) {
+				if (! preg_match ( '/\/unban\s\"(.+?)\"/i', $this->message, $match )) {
 					return;
 				}
 				$unbanUser = new User ( null, null, $match [1], null );
@@ -382,10 +386,9 @@ class ShoutboxEntryAddAction extends AbstractAction {
 				}
 				break;
 			case 'banlist' :
-				$this->message = str_replace ( '/banlist ', '', $this->message );
-				if ($this->message == 'show') {
+				$this->message = str_replace ( '/' . $this->command . ' ', '', $this->message );
+				if (StringUtil::toLowerCase ( $this->message ) == 'show') {
 					if (! WCF::getUser ()->getPermission ( 'mod.shoutbox.canBanUser' )) {
-						$this->message = '/banlist ' . $this->message;
 						return;
 					}
 					$sql = "SELECT *  
@@ -415,9 +418,8 @@ class ShoutboxEntryAddAction extends AbstractAction {
 						$this->toUserID = WCF::getUser ()->userID;
 						$this->toUserName = WCF::getUser ()->username;
 					}
-				} elseif ($this->message == 'pub') {
+				} elseif (StringUtil::toLowerCase ( $this->message ) == 'pub') {
 					if (! WCF::getUser ()->getPermission ( 'mod.shoutbox.canBanUser' )) {
-						$this->message = '/banlist ' . $this->message;
 						return;
 					}
 					$sql = "SELECT *  
@@ -451,7 +453,7 @@ class ShoutboxEntryAddAction extends AbstractAction {
 				if (! WCF::getUser ()->getPermission ( 'mod.shoutbox.canBanUser' )) {
 					return;
 				}
-				$this->message = str_replace ( '/system ', '', $this->message );
+				$this->message = str_replace ( '/' . $this->command . ' ', '', $this->message );
 				$this->username = WCF::getLanguage ()->get ( 'wcf.shoutbox.bot.name' );
 				break;
 			default :
@@ -467,12 +469,12 @@ class ShoutboxEntryAddAction extends AbstractAction {
 		// @TODO: find a better solution
 		$tmp = $this->message;
 		$count = 0;
-		$tmp = preg_replace('/\[.+?\]/', '', $tmp);
-		$tmp = preg_replace('/\[\/.+?\]/', '', $tmp);
-		//$tmp = preg_replace('/^\[.*?\]\[\/.*?\]$/', '', $tmp);
-		$tmp = StringUtil::trim($tmp);
+		$tmp = preg_replace ( '/\[.+?\]/', '', $tmp );
+		$tmp = preg_replace ( '/\[\/.+?\]/', '', $tmp );
+		// $tmp = preg_replace('/^\[.*?\]\[\/.*?\]$/', '', $tmp);
+		$tmp = StringUtil::trim ( $tmp );
 		if (empty ( $tmp )) {
-				throw new NamedUserException ( WCF::getLanguage ()->get ( 'wcf.shoutbox.entry.error.message.empty' ) );
+			throw new NamedUserException ( WCF::getLanguage ()->get ( 'wcf.shoutbox.entry.error.message.empty' ) );
 		}
 		$this->message = preg_replace ( '/\[spoiler.*\](.+)\[\/spoiler\]/Ui', '$1', $this->message );
 		$this->message = preg_replace ( '/\[youtube.*\](.+)\[\/youtube\]/Ui', '$1', $this->message );
@@ -587,6 +589,7 @@ class ShoutboxEntryAddAction extends AbstractAction {
 	}
 	
 	/**
+	 *
 	 * @see Action::execute()
 	 */
 	public function execute() {
