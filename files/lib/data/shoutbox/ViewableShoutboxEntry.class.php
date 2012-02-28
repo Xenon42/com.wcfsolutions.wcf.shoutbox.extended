@@ -53,23 +53,6 @@ class ViewableShoutboxEntry extends ShoutboxEntry {
 			} 
 		}
 	}
-	public function getStyledToUsername() {
-	
-		if ($this->username == StringUtil::encodeHTML ( WCF::getLanguage ()->get ( 'wcf.shoutbox.bot.neme' ) )) {
-			return sprintf ( WCF::getLanguage ()->get ( 'wcf.shoutbox.bot.style' ), StringUtil::encodeHTML ( $this->username ) );
-		} else {
-			if ($this->usernameStyle == "%s") {
-				$this->usernameStyle = '<span style="font-weight:bold;color:#666">%s</span>';
-			}
-			if ($this->toUserID == 0 || ($this->toUserID <> 0 && $this->toUserID == WCF::getUser()->userID)){
-				return sprintf ( $this->usernameStyle, StringUtil::encodeHTML ( $this->username ) );
-			}	elseif ($this->toUserID <> 0 && $this->toUserID <> WCF::getUser()->userID) {
-				return sprintf ( $this->usernameStyle, StringUtil::encodeHTML ( $this->toUserName ) );
-			}	else {
-				return sprintf ( $this->usernameStyle, StringUtil::encodeHTML ( $this->username ) );
-			}
-		}
-	}
 	
 	/**
 	 * Returns the whisper prefix.
