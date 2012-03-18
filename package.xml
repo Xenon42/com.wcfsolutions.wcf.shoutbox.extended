@@ -44,6 +44,7 @@
 		<options>options.xml</options>
 		<cronjobs>cronjobs.xml</cronjobs>
 		<feedsource>feedsource.xml</feedsource>
+		<eventlistener>eventlistener.xml</eventlistener>
 
 		<!-- languages -->
 		<languages languagecode="de">de.xml</languages>
@@ -52,21 +53,31 @@
 	<instructions type="update" fromversion="2.0.1">
 		<files>files.tar</files>
 		<templates>templates.tar</templates>
+		<script>acp/update_shoutbox.php</script>
+		<eventlistener>eventlistener.xml</eventlistener>
 	</instructions>
 	<instructions type="update" fromversion="2.0.2">
 		<files>files.tar</files>
 		<templates>templates.tar</templates>
+		<script>acp/update_shoutbox.php</script>
+		<eventlistener>eventlistener.xml</eventlistener>
 	</instructions>
 	<instructions type="update" fromversion="2.0.3">
 		<files>files.tar</files>
 		<templates>templates.tar</templates>
+		<script>acp/update_shoutbox.php</script>
+		<eventlistener>eventlistener.xml</eventlistener>
 	</instructions>
 	<instructions type="update" fromversion="2.0.4">
 		<files>files.tar</files>
 		<templates>templates.tar</templates>
+		<script>acp/update_shoutbox.php</script>
+		<eventlistener>eventlistener.xml</eventlistener>
 	</instructions>
 	<instructions type="update" fromversion="2.0.5">
 		<files>files.tar</files>
 		<templates>templates.tar</templates>
+		<script>acp/update_shoutbox.php</script>
+		<eventlistener>eventlistener.xml</eventlistener>
 	</instructions>
 </package>

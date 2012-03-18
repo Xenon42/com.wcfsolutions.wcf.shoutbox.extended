@@ -16,4 +16,7 @@ echo "---cleaning directory---"
 test -e files.tar && rm files.tar
 test -e templates.tar && rm templates.tar
 echo "---done---"
-exit 0
+
+echo  "beliebige Taste drücken"
+read -n1
+

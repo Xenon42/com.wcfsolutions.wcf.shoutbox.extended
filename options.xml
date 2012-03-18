@@ -72,6 +72,11 @@ DESC:wcf.global.sortOrder.descending]]></selectoptions>
 				<optiontype>integer</optiontype>
 				<defaultvalue>5</defaultvalue>
 			</option>
+			<option name="shoutbox_enable_new_threads">
+				<categoryname>shoutbox.general</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+			</option>
 		</options>
 	</import>
 	<delete>
