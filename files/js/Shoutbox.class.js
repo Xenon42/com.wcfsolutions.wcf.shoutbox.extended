@@ -128,10 +128,15 @@ var Shoutbox = Class
 					messageInputField.focus();
 				}
 			},
-
-			insertBBCode : function(aTag, eTag) {
+			
+			insertBBCode : function(aTag, eTag, id) {
 				var input = $(this.shoutboxID + 'Message');
 				input.focus();
+				if (id != null) {
+				var selectElm = $(id);
+				selectElm.selectedIndex = '0';
+				}
+				
 				/* für Internet Explorer */
 				if (typeof document.selection != 'undefined') {
 					/* Einfügen des Formatierungscodes */
