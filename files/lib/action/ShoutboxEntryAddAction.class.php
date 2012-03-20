@@ -129,6 +129,11 @@ class ShoutboxEntryAddAction extends AbstractAction {
 			if (StringUtil::length ( $this->message ) > WCF::getUser ()->getPermission ( 'user.shoutbox.maxEntryLength' )) {
 				throw new NamedUserException ( WCF::getLanguage ()->getDynamicVariable ( 'wcf.message.error.tooLong', array ('maxTextLength' => WCF::getUser ()->getPermission ( 'user.shoutbox.maxEntryLength' ) ) ) );
 			}
+			
+			if (preg_match ( "/\[.*?\]/", $this->message, $match )) {
+				$this->handleBBCodes ();
+			}
+			
 			// check for commands
 			if (preg_match ( "/^\/.*?\s/", $this->message, $match )) {
 				$this->command = StringUtil::trim ( StringUtil::replace ( '/', '', $match [0] ) );
@@ -136,9 +141,6 @@ class ShoutboxEntryAddAction extends AbstractAction {
 			}
 			$this->message = StringUtil::replace ( "\n", '', StringUtil::unifyNewlines ( $this->message ) );
 			
-			if (preg_match ( "/\[.*?\]/", $this->message, $match )) {
-				$this->handleBBCodes ();
-			}
 		} catch ( UserException $e ) {
 			// show errors in a readable way
 			if (empty ( $_REQUEST ['ajax'] )) {
