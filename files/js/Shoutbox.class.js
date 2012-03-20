@@ -331,6 +331,13 @@ var Shoutbox = Class
 			},
 
 			/**
+			 * 
+			 */
+			insertWhisperCommand : function(user) {
+				
+			},
+			
+			/**
 			 * Inserts the given entries into the shoutbox.
 			 * 
 			 * @param Hash
@@ -358,9 +365,18 @@ var Shoutbox = Class
 							var time = new Element('span')
 									.addClassName('light').update(
 											'[' + entry.time + ']');
-							var entryRow = new Element('p', {
-								id : this.shoutboxID + 'Entry' + id
-							}).hide().insert(time);
+							
+								if (entry.prefix != '') {
+									var entryRow = new Element('p', {
+										id : this.shoutboxID + 'Entry' + id, 
+										class : 'shoutboxWhisper'
+									}).hide().insert(time);
+								} else {
+									var entryRow = new Element('p', {
+										id : this.shoutboxID + 'Entry' + id
+									}).hide().insert(time);
+								}
+							
 							if (entry.isDeletable == 1) {
 								var removeImage = new Element('img', {
 									src : this.options.imgDeleteEntrySrc,
@@ -394,9 +410,9 @@ var Shoutbox = Class
 											'a',
 											{
 												style : 'text-decoration:none;',
-												onClick : '$(\'shoutboxMessage\').value=\'/w \"'
+												onClick : 'value = $(\'shoutboxMessage\').value;$(\'shoutboxMessage\').value=\'/w "'
 														+ entry.username
-														+ '\"  \'; $(\'shoutboxMessage\').focus();'
+														+ '\" \'; $(\'shoutboxMessage\').focus();'
 											}).insert(entry.styledUsername);
 									entryRow.insert(userLink);
 								} else {
@@ -406,7 +422,7 @@ var Shoutbox = Class
 												style : 'text-decoration:none;',
 												onClick : '$(\'shoutboxMessage\').value=\'/w \"'
 														+ entry.toUserName
-														+ '\"  \'; $(\'shoutboxMessage\').focus();'
+														+ '\" \'; $(\'shoutboxMessage\').focus();'
 											}).insert(entry.styledUsername);
 									entryRow.insert(userLink);
 								}
