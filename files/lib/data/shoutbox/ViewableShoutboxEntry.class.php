@@ -41,7 +41,7 @@ class ViewableShoutboxEntry extends ShoutboxEntry {
 		if ($this->username == StringUtil::encodeHTML ( WCF::getLanguage ()->get ( 'wcf.shoutbox.bot.neme' ) )) {
 			return sprintf ( WCF::getLanguage ()->get ( 'wcf.shoutbox.bot.style' ), StringUtil::encodeHTML ( $this->username ) );
 		} else {
-			if (!$this->usernameStyle) {
+			if (!$this->usernameStyle || $this->usernameStyle == '%s') {
 				$this->usernameStyle = '<span style="font-weight:bold;color:#666;">%s</span>';
 			}
 			 if ($this->toUserID == 0 || ($this->toUserID <> 0 && $this->toUserID == WCF::getUser()->userID)){
